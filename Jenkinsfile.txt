@@ -22,7 +22,9 @@ stages{
    {
       steps
      {
+       script{
         customImage.push()
+       }
      } 
    
    }
