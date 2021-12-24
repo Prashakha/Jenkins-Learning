@@ -2,11 +2,8 @@ node
 {
  checkout scm
  
- docker.withRegistry('https://registery.hub.docker.com', 'DockerHub')
-{
- 
  def customImage = docker.build("prashakha12/node-web-app")
 
   customImage.push()
-}
+
 }
