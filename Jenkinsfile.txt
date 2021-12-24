@@ -10,28 +10,19 @@ stages{
      }
    }
    
-   stage('build docker image')
+   stage('build and push docker image')
    {
       steps
      {
        script
        {
        def customImage = docker.build("prashakha12/node-web-app")
+       customImage.push()
        }
      }
    }
 
-    stage('pushing image to docker hub')
-   {
-      steps
-     {
-       script
-       {
-        customImage.push()
-       }
-     } 
-   
-   }
+  
      
  }
 
