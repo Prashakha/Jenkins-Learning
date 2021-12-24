@@ -2,18 +2,31 @@ pipeline
 {
 agent any
 stages{
-  stage('docker image')
+  stage('checkout git')
    {
      steps
      {
         checkout scm
- 
-        def customImage = docker.build("prashakha12/node-web-app")
-
-        customImage.push()
-      }
-   }
      }
+   }
+   
+   stage('build docker image')
+   {
+      steps
+     {
+       def customImage = docker.build("prashakha12/node-web-app")
+     }
+   }
+
+    stage('pushing image to docker hub')
+   {
+      steps
+     {
+        customImage.push()
+     } 
+   
+   }
+     
  
 
 }
