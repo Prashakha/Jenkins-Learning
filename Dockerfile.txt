@@ -1,5 +1,7 @@
-From openjdk:8
-COPY . /src/java
-WORKDIR /src/java
-RUN ["javac", "Demo.java"]
-ENTRYPOINT ["java", "Demo"]
+FROM node:16
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY ..
+EXPOSE 8081
+CMD ["node","main.js"]
