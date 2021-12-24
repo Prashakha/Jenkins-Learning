@@ -1,9 +1,19 @@
-node 
+pipeline
 {
- checkout scm
+agent:any
+stages{
+  stage('docker image')
+{
+  steps
+{
+   checkout scm
  
  def customImage = docker.build("prashakha12/node-web-app")
 
   customImage.push()
+}
+}
+}
+ 
 
 }
