@@ -14,7 +14,10 @@ stages{
    {
       steps
      {
+       script
+       {
        def customImage = docker.build("prashakha12/node-web-app")
+       }
      }
    }
 
@@ -22,7 +25,8 @@ stages{
    {
       steps
      {
-       script{
+       script
+       {
         customImage.push()
        }
      } 
