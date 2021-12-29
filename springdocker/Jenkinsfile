@@ -34,5 +34,17 @@ pipeline
                   bat 'mvn -f "springdocker//pom.xml" install'
 		}
            }
+	  
+	  stage('build and push docker image')
+          {
+            steps
+    	      {
+      		 script
+      		 {
+     		  def customImage = docker.build("prashakha12/springboot-image")
+      		  customImage.push()
+                 }
+              }
+          }
 	}	
 }
