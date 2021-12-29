@@ -52,7 +52,7 @@ pipeline
     	      {
                 script
       		 {
-      		  docker.image('prashakha12/springboot-image').run("-p 9222:9222")
+      		  docker.image('prashakha12/springboot-image').run("-p 8081:8081")
                   
       	        } 
               }
